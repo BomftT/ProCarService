@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /* 
+            ^  : Kiểm tra ký tự đầu tiên
+            $  : Kiểm tra ký tự cuối cùng
+            [A-Za-z]    : alphabet
+            [A-Za-z0-9] :alphanumeric  
+        */
+        function kiemtra() {
+            //1. Name
+            var sName = document.getElementById("txtName").value;
+            var reName = /^[A-Za-z0-9]/;
+
+            if (reName.test(sName)) {  //(reName.test(sName) ==   false)            
+                alert("Tên không đc bỏ trống!");
+                document.getElementById("txtName").focus();
+                return false;
+            }
+
+            //2.email
+            var sMail = document.getElementById("txtMail").value;
+
+            if ( (sMail.indexOf("@") < 0)|| (sMail.indexOf(".") < 0)) {          
+                alert("Email không hợp lệ!");
+                document.getElementById("txtMail").focus();
+                return false;
+            }
+
+            //3. Phone
+            var sPhone = document.getElementById("txtPhone").value;
+            if (isNaN(sPhone)) {         
+                alert("Phone chỉ nhập số!");
+                document.getElementById("txtPhone").focus();
+                return false;
+            }
+            //4. Show Message
+             //4.1. Chuẩn bị nd message
+             var mes = [];
+             mes.push("Your information");
+             mes.push("---------------------");
+             mes.push("Full name:" + sName);
+             mes.push("Email:" + sMail);
+             mes.push("Phone:" + sPhone);
+
+             //4.2. Thông báo
+             alert(mes.join("\n"));
+        }
+    </script>
+</head>
+
+<body>
+    <form action="https://vnexpress.net" onsubmit="return kiemtra()">
+        Full Name: <input id="txtName" autofocus> <br>
+        Email: <input id="txtMail"> <br>
+        Phone: <input id="txtPhone"> <br>
+        <button>Đăng ký</button>
+    </form>
+</body>
+
+</html>

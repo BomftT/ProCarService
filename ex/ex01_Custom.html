@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        //Cách 1: Constructor
+        var Car1 = new  Object();
+
+        //Cách 2: Literal (empty)
+        var Car2 = {};
+
+        //Cách 3: Literal
+        var Car3 = {
+            brand: 'Kia',
+            model: 'Sorento',
+            price: '60000'
+        };
+        ///////////////////////////
+        Car1.brand = "Nissan";
+        Car2.brand = "Mazda";
+        ///////////////////////////
+        document.write(Car1.brand + "<br>");
+        document.write(Car2.brand + "<br>");
+        document.write(Car3.brand);
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
